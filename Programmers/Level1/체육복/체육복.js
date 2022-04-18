@@ -11,6 +11,3 @@ function solution(n, lost, reserve) {
     }
     return n - _lost.length;
 }
-
-// console.log(n - _lost.length);
-solution(5, [2, 4], [3]);

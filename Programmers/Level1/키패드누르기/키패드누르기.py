@@ -37,4 +37,4 @@ def solution(numbers, hand):
                     l_hand = i
                     answer += 'L'
                     
-    print(answer)
+    return answer

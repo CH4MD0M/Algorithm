@@ -33,7 +33,7 @@ function solution(p) {
     } else {
         let answer = "(" + solution(v) + ")";
 
-        for (let i of u.slice(1, u.length - 1)) {
+        for (let i of u.slice(1, -1)) {
             answer += i == "(" ? ")" : "(";
         }
 

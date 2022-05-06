@@ -1,2 +1,7 @@
-/**/*[-retry].py
+*.DS_Store
+*.csv
+*.docx
+*.pdf
+*.xlsx
+Untitled.ipynb
 .ipynb_checkpoints

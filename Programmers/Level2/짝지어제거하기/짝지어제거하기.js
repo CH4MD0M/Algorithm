@@ -20,4 +20,3 @@ function solution(s) {
 
     return stack.length ? 0 : 1;
 }
-solution("cdcd");

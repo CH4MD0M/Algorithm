@@ -14,5 +14,3 @@ function solution(arr) {
     }
     return answer;
 }
-solution([2, 6, 8, 14]);
-solution([1, 2, 3]);

@@ -16,5 +16,3 @@ def solution(dirs):
             visited.add((nx, ny, x, y))
             x, y = nx, ny
     return len(visited) // 2
-    
-    

@@ -25,4 +25,3 @@ def solution(maps):
                 visited[nx][ny] = visited[x][y] + 1
                 queue.append((nx, ny))
     return -1
-    

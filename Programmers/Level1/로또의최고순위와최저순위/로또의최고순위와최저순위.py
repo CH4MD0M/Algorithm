@@ -5,4 +5,4 @@ def solution(lottos, win_nums):
         if x in lottos:
             count += 1 
 
-    return [lst[lottos.count(0) + count], lst[count]
+    return [lst[lottos.count(0) + count], lst[count]]

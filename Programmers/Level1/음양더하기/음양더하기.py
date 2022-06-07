@@ -6,4 +6,7 @@ def solution(absolutes, signs):
 
 # 다른 풀이
 def solution(absolutes, signs):
-    return sum(absolutes if sign else -absolutes for absolutes, sign in zip(absolutes, signs))
+    answer = 0
+    for a, s in zip(absolutes, signs):
+        answer =  answer + a if s else answer - a
+    return answer

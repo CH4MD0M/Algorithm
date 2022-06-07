@@ -5,3 +5,7 @@ def solution(nums):
         answer += int(n)
     
     return answer
+
+# Pythonic 풀이
+def solution(nums):    
+    return sum([int(n) for n in str(nums)])

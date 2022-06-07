@@ -1,28 +1,28 @@
-table = {
-        'zero': 0,
-        'one': 1,
-        'two': 2,
-        'three': 3,
-        'four': 4,
-        'five': 5,
-        'six': 6,
-        'seven': 7,
-        'eight': 8,
-        'nine': 9
+num_dict = {
+    'zero': 0,
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9,
 }
 
-def solution(string):
+def solution(strings):
     answer = ''
-    alp = ''
-    for c in string:
-        if c.isdigit():
-            answer += str(c)
+    tmp = ''
+    for s in strings:
+        if s.isdigit():
+            answer += str(s)
         else:
-            alp += c
-        
-        if alp in table.keys():
-            answer += str(table[alp])
-            alp = ''
+            tmp += str(s)
+            
+        if tmp in num_dict.keys():
+            answer += str(num_dict[tmp])
+            tmp = ''
             
     return int(answer)
 

@@ -13,3 +13,11 @@ function solution(n, m) {
     return [gcd(n, m), lcm(n, m)];
     // return [gcd(n, m), parseInt((n * m) / gcd(n, m))];
 }
+
+// 다른 풀이
+function solution(n, m) {
+    const gcd = (a, b) => (!b ? a : gcd(b, a % b));
+    const lcm = (a, b) => (a * b) / gcd(a, b);
+
+    return [gcd(n, m), lcm(n, m)];
+}

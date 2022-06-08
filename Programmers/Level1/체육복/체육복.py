@@ -1,11 +1,11 @@
 def solution(n, lost, reserve):
-    _reserve = set(reserve) - set(lost)
-    _lost = set(lost) - set(reserve)
+    reserve_student = set(reserve) - set(lost)
+    lost_student = set(lost) - set(reserve)
     
-    for r in _reserve:
-        if r - 1 in _lost:
-            _lost.remove(r - 1)
-        elif r + 1 in _lost:
-            _lost.remove(r + 1)
-    
-    return n - len(_lost)
+    for rs in reserve_student:
+        if rs - 1 in lost_student:
+            lost_student.remove(rs - 1)
+        elif rs + 1 in lost_student:
+            lost_student.remove(rs + 1)
+            
+    return n - len(lost_student)

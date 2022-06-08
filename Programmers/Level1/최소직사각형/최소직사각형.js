@@ -8,3 +8,11 @@ function solution(sizes) {
     });
     console.log(Math.max(...width) * Math.max(...height));
 }
+
+// 다른 풀이
+function solution(sizes) {
+    return (
+        Math.max(...sizes.map((e) => Math.max(...e))) *
+        Math.max(...sizes.map((e) => Math.min(...e)))
+    );
+}

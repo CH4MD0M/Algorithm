@@ -1,5 +1,5 @@
 function solution(cacheSize, cities) {
-    const cache = ["Jeju"];
+    const cache = [];
     let time = 0;
 
     for (let city of cities) {

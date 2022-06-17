@@ -1,9 +1,15 @@
 import re
-from itertools import permutations
 
 def solution(expression):
     answer = []
-    operators = list(permutations(['*', '+', '-'], 3))
+    operators = [
+        ("+", "-", "*"),
+        ("+", "*", "-"),
+        ("-", "+", "*"),
+        ("-", "*", "+"),
+        ("*", "+", "-"),
+        ("*", "-", "+"),
+    ];
     expression = re.split('([*+-])', expression)
     
     for operator in operators:
@@ -15,5 +21,4 @@ def solution(expression):
                 exp[idx - 1] = str(eval(exp[idx - 1] + op + exp[idx + 1]))
                 del exp[idx:idx + 2]
         answer.append(abs(int(exp[0])))
-        
     return max(answer)

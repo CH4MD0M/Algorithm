@@ -6,5 +6,5 @@ def solution(s):
         for s in l:
             if int(s) not in answer:
                 answer.append(int(s))
-                continue
+                
     return answer

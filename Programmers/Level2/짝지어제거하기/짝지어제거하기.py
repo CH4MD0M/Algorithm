@@ -1,10 +1,10 @@
 def solution(s):
     stack = []
-    for i in range(len(s)):
-        if len(stack) == 0:
-            stack.append(s[i])
-        elif stack[-1] == s[i]:
+    for i in s:
+        if not stack:
+            stack.append(i)
+        elif stack[-1] == i:
             stack.pop()
         else:
-            stack.append(s[i])
+            stack.append(i)
     return 0 if stack else 1

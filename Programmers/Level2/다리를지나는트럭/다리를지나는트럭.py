@@ -10,4 +10,5 @@ def solution(bridge_length, weight, truck_weights):
                 queue.append(truck_weights.pop(0))
             else:
                 queue.append(0)
+                
     return answer

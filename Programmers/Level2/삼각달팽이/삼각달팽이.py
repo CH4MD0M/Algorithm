@@ -9,9 +9,11 @@ def solution(n):
                 x += 1
             elif i % 3 == 1:
                 y += 1
-            elif i % 3 == 2:
+            else:
                 x -= 1
                 y -= 1
+            
             matrix[x][y] = num
             num += 1
-    return [item for m in matrix for item in m if item != 0]
+            
+    return [value for inner_matrix in matrix for value in inner_matrix if value != 0]

@@ -1,28 +1,26 @@
 def solution(skill, skill_trees):
     answer = 0
-
+    
     for tree in skill_trees:
-        skill_lst = ''
-
+        tmp = ''
         for t in tree:
             if t in skill:
-                skill_lst += t
-
-        if skill[:len(skill_lst)] == skill_lst:
+                tmp += t
+        if skill[:len(tmp)] == tmp:
             answer += 1
-
+    
     return answer
 
 # for-else문 사용
 def solution(skill, skill_trees):
     answer = 0
 
-    for skills in skill_trees:
-        skill_list = list(skill)
+    for tree in skill_trees:
+        tmp = list(skill)
 
-        for s in skills:
-            if s in skill:
-                if s != skill_list.pop(0):
+        for t in tree:
+            if t in skill:
+                if t != tmp.pop(0):
                     break
         else:
             answer += 1

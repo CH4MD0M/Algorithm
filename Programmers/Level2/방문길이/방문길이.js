@@ -1,10 +1,5 @@
 function solution(dirs) {
-    const direction = {
-        U: 0,
-        D: 1,
-        L: 2,
-        R: 3,
-    };
+    const direction = { U: 0, D: 1, L: 2, R: 3 };
     let dx = [-1, 1, 0, 0];
     let dy = [0, 0, -1, 1];
 
@@ -19,10 +14,8 @@ function solution(dirs) {
         if (-5 <= nx && nx <= 5 && -5 <= ny && ny <= 5) {
             visited.add("" + x + y + nx + ny);
             visited.add("" + nx + ny + x + y);
-
             [x, y] = [nx, ny];
         }
     }
-
     return visited.size / 2;
 }

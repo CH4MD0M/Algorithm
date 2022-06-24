@@ -1,11 +1,11 @@
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
-
 def solution(arr):
+    gcd = lambda a, b : a if not b else gcd(b, a % b)
+    lcm = lambda a, b : a * b // gcd(a, b)
+    
     arr.sort(reverse=True)
     answer = arr[0]
+    
     for i in range(len(arr)):
-        answer = answer * arr[i] // gcd(answer,arr[i])
+        answer = lcm(answer, arr[i])
+        
     return answer

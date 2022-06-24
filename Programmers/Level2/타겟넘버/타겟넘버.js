@@ -15,3 +15,17 @@ function solution(numbers, target) {
     DFS(0, numbers, 0, target);
     return answer;
 }
+
+function solution(numbers, target) {
+    let answer = [0];
+
+    for (let n of numbers) {
+        let tmp = [];
+        for (let i of answer) {
+            tmp.push(i + n);
+            tmp.push(i - n);
+        }
+        answer = tmp;
+    }
+    return answer.filter((e) => e === target).length;
+}

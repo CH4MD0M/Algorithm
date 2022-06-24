@@ -1,43 +1,40 @@
-from itertools import combinations
 from collections import defaultdict
+from itertools import combinations
 
 def solution(info, query):
     answer = []
     info_dict = defaultdict(list)
-    
+
     for i in info:
-        info_tmp = i.split()
-        info_key = info_tmp[:-1]
-        info_score = int(info_tmp[-1])
-        
+        tmp_info = i.split()
+        info_key = tmp_info[:-1]
+        info_score = int(tmp_info[-1])
+
         for i in range(5):
-            combi = list(combinations(info_key, i))
+            combi = combinations(info_key, i)
             for c in combi:
                 tmp_key = ''.join(c)
                 info_dict[tmp_key].append(info_score)
-    
-    for key in info_dict.keys():
-        info_dict[key].sort()
-        
+
+    for v in info_dict.values():
+        v.sort()
 
     for q in query:
-        query_tmp = [i for i in q.split() if i != 'and' and i != '-']
-        query_key = ''.join(query_tmp[:-1])
-        query_score = int(query_tmp[-1])
-        
-        if query_key in info_dict:
-            lst = info_dict[query_key]
+        tmp_query = [i for i in q.split() if i != 'and' and i != '-']
+        query_key = ''.join(tmp_query[:-1])
+        query_score = int(tmp_query[-1])
 
-            if len(lst) > 0:
-                start, end = 0, len(lst)
-                while start < end:
-                    mid = (start + end) // 2
-                    if lst[mid] >= query_score:
-                        end = mid
-                    else:
-                        start = mid + 1
-                answer.append(len(lst) - start)
+        if query_key in info_dict:
+            target_lst = info_dict[query_key]
+
+            start, end = 0, len(target_lst)
+            while start < end:
+                mid = (start + end) // 2
+                if target_lst[mid] >= query_score:
+                    end = mid
+                else:
+                    start = mid + 1
+            answer.append(len(target_lst) - start)
         else:
-            answer.append()
-            
+            answer.append(0)
     return answer

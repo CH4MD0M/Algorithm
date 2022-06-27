@@ -1,8 +1,8 @@
 import math
 
 def solution(str1, str2):
-    str1_lst = [(str1[i:i+2]).lower() for i in range(len(str1)-1) if str1[i:i+2].isalpha()]
-    str2_lst = [(str2[i:i+2]).lower() for i in range(len(str2)-1) if str2[i:i+2].isalpha()]
+    str1_lst = [(str1[i:i + 2]).lower() for i in range(len(str1) - 1) if str1[i:i + 2].isalpha()]
+    str2_lst = [(str2[i:i + 2]).lower() for i in range(len(str2) - 1) if str2[i:i + 2].isalpha()]
     
     inter = set(str1_lst) & set(str2_lst)
     union = set(str1_lst) | set(str2_lst)

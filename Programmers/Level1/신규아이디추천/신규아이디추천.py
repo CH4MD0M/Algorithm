@@ -30,6 +30,8 @@ def solution(new_id):
     # 7단계
     while len(answer) < 3:
         answer += answer[-1]
+    # if len(answer) < 3:
+    #     answer += answer[-1] * (3 - len(answer))
     
     return answer
             

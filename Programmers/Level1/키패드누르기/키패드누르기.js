@@ -15,41 +15,40 @@ function solution(numbers, hand) {
         "#": [3, 2],
     };
 
-    const left = [1, 4, 7];
-    const right = [3, 6, 9];
-    let lHand = "*";
-    let rHand = "#";
+    let left_Hand = "*";
+    let right_Hand = "#";
 
-    for (let i of numbers) {
-        if (left.includes(i)) {
+    for (let num of numbers) {
+        let cur = keypad[num];
+        let left_Position = keypad[left_Hand];
+        let right_Position = keypad[right_Hand];
+
+        if ([1, 4, 7].includes(num)) {
             answer += "L";
-            lHand = i;
-        } else if (right.includes(i)) {
+            left_Hand = num;
+        } else if ([3, 6, 9].includes(num)) {
             answer += "R";
-            rHand = i;
+            right_Hand = num;
         } else {
-            let cur = keypad[i];
-            let lPosition = keypad[lHand];
-            let rPosition = keypad[rHand];
-            lDist =
-                Math.abs(cur[0] - lPosition[0]) +
-                Math.abs(cur[1] - lPosition[1]);
-            rDist =
-                Math.abs(cur[0] - rPosition[0]) +
-                Math.abs(cur[1] - rPosition[1]);
+            left_Dist =
+                Math.abs(cur[0] - left_Position[0]) +
+                Math.abs(cur[1] - left_Position[1]);
+            right_Dist =
+                Math.abs(cur[0] - right_Position[0]) +
+                Math.abs(cur[1] - right_Position[1]);
 
-            if (lDist < rDist) {
-                lHand = i;
+            if (left_Dist < right_Dist) {
+                left_Hand = num;
                 answer += "L";
-            } else if (lDist > rDist) {
-                rHand = i;
+            } else if (left_Dist > right_Dist) {
+                right_Hand = num;
                 answer += "R";
             } else {
                 if (hand == "right") {
-                    rHand = i;
+                    right_Hand = num;
                     answer += "R";
                 } else {
-                    lHand = i;
+                    left_Hand = num;
                     answer += "L";
                 }
             }

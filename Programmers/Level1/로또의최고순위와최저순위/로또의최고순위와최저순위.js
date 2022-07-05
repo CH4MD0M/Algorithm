@@ -1,7 +1,7 @@
 function solution(lottos, win_nums) {
-    const arr = [6, 6, 5, 4, 3, 2, 1];
-    const zero = lottos.filter((l) => l === 0).length;
-    const count = lottos.filter((l) => win_nums.includes(l)).length;
+    const lotto_point = [6, 6, 5, 4, 3, 2, 1];
+    const zero_count = lottos.filter((v) => v === 0).length;
+    const count = lottos.filter((v) => win_nums.includes(v)).length;
 
-    return [arr[zero + count], arr[count]];
+    return [lotto_point[count + zero_count], lotto_point[count]];
 }

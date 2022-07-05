@@ -1,10 +1,7 @@
 function solution(price, money, count) {
-    const total = Array(count)
-        .fill()
-        .map((_, i) => {
-            return (i + 1) * price;
-        })
-        .reduce((acc, cur) => acc + cur);
-
-    return total >= money ? total - money : 0;
+    let answer = 0;
+    for (let i = 1; i <= count; i++) {
+        answer += price * i;
+    }
+    return money < answer ? answer - money : 0;
 }

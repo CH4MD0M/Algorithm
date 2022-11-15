@@ -1,42 +1,36 @@
-function divide(p) {
-    let p1 = 0;
-    let p2 = 0;
-
-    for (let i = 0; i < p.length; i++) {
-        p[i] == "(" ? (p1 += 1) : (p2 += 1);
-        if (p1 === p2) return [p.slice(0, p1 + p2), p.slice(p1 + p2, p.length)];
-    }
+function divide(w) {
+  let w1 = 0,
+    w2 = 0;
+  [];
+  for (let i = 0; i < w.length; i++) {
+    w[i] == '(' ? w1++ : w2++;
+    if (w1 === w2) return [w.slice(0, w1 + w2), w.slice(w1 + w2)];
+  }
 }
 
 function check(u) {
-    let stack = [];
-    for (let i of u) {
-        if (i == "(") {
-            stack.push(i);
-        } else {
-            if (stack.length == 0) {
-                return false;
-            }
-            stack.pop();
-        }
-        return true;
+  const stack = [];
+  for (let chr of u) {
+    if (chr === '(') {
+      stack.push(chr);
+    } else {
+      if (!stack.length) return false;
+      stack.pop();
     }
+    return true;
+  }
 }
 
 function solution(p) {
-    if (p.length == 0) return "";
+  if (!p.length) return '';
 
-    let [u, v] = divide(p);
+  let [u, v] = divide(p);
 
-    if (check(u)) {
-        return u + solution(v);
-    } else {
-        let answer = "(" + solution(v) + ")";
-
-        for (let i of u.slice(1, -1)) {
-            answer += i == "(" ? ")" : "(";
-        }
-
-        return answer;
-    }
+  if (check(u)) return u + solution(v);
+  else {
+    const tmp = [...u.slice(1, -1)]
+      .map(item => (item === '(' ? ')' : '('))
+      .join('');
+    return '(' + solution(v) + ')' + tmp;
+  }
 }
